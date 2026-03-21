@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Visadelab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: #94a3b8;
+      margin-bottom: 2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      max-width: 760px;
+      margin: auto;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      color: white;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      background: #334155;
+      transform: translateY(-2px);
+    }
+
+    .title {
+      font-size: 1.2rem;
+      margin-bottom: 6px;
+    }
+
+    .desc {
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Visadelab</h1>
+    <p>Your personal systems</p>
+
+    <div class="grid">
+      <a class="card" href="https://tunaspend.visadelab.xyz">
+        <div class="title">💰 Tunaspend</div>
+        <div class="desc">Expense tracker</div>
+      </a>
+
+      <a class="card" href="https://tunatrade.visadelab.xyz">
+        <div class="title">📈 Tunatrade</div>
+        <div class="desc">Trading system</div>
+      </a>
+
+      <a class="card" href="https://tunanote.visadelab.xyz">
+        <div class="title">🧠 Tunanote</div>
+        <div class="desc">Knowledge system</div>
+      </a>
+
+      <a class="card" href="https://buddhist-footprints.visadelab.xyz">
+        <div class="title">🧘 Buddhist Footprint</div>
+        <div class="desc">Spiritual tracking</div>
+      </a>
+
+      <a class="card" href="https://tunawealth.visadelab.xyz">
+        <div class="title">🏦 TunaWealth</div>
+        <div class="desc">Personal wealth management</div>
+      </a>
+
+      <a class="card" href="https://tunatcm.visadelab.xyz">
+        <div class="title">🌿 TunaTCM</div>
+        <div class="desc">TCM health records</div>
+      </a>
+    </div>
+  </div>
+</body>
+</html>
