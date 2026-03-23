@@ -1,29 +1,25 @@
 #!/bin/bash
+# Deploy Visadelab Portal to Mac Mini
+# Source of truth: MacBook Air ~/Documents/visadelab_portal/
+# Run this after editing index.html
 
-MAC_MINI_HOST="garytan@TANde-Mac-mini.local"
-MAC_MINI_DIR="~/visadelab_portal"
+set -e
 
-echo "🚀 Deploying Visadelab Portal..."
+MAC_MINI="garytan@192.168.1.10"
+REMOTE_DIR="/Users/garytan/Visadelab_Portal/"
+SSH_KEY="$HOME/.ssh/id_ed25519"
 
-# ── 1. Git commit & push ──────────────────────────────────────
-cd ~/Documents/visadelab_portal   # ← 改成你 MacBook Air 上的 repo 路徑
+echo "📦 Committing changes..."
+cd ~/Documents/visadelab_portal
+git add -A
+git diff --cached --quiet && echo "No changes to commit" || git commit -m "update: $(date '+%Y-%m-%d %H:%M')"
 
-if [ -n "$(git status --porcelain)" ]; then
-  echo "📦 Git commit & push..."
-  git add .
-  git commit -m "deploy: $(date '+%Y-%m-%d %H:%M')"
-  git push
-else
-  echo "✅ Git: 無變更"
-fi
+echo "🚀 Pushing to GitHub..."
+git push origin main
 
-# ── 2. rsync to Mac Mini ──────────────────────────────────────
-echo "📡 Syncing to Mac Mini..."
+echo "📡 Deploying to Mac Mini..."
+rsync -av -e "ssh -i $SSH_KEY -o IdentitiesOnly=yes -o StrictHostKeyChecking=no" 
+  index.html 
+  $MAC_MINI:$REMOTE_DIR
 
-rsync -av --delete \
-  --exclude='.git/' \
-  --exclude='deploy.sh' \
-  ~/Documents/visadelab/ "$MAC_MINI_HOST:$MAC_MINI_DIR/"
-
-echo "✅ Deploy 完成！"
-echo "🌐 https://visadelab.xyz"
+echo "✅ Done! https://portal.visadelab.xyz"
