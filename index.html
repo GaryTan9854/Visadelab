@@ -5,184 +5,38 @@
   <title>Visadelab</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-
-    .container {
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    p {
-      color: #94a3b8;
-      margin-bottom: 2rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      max-width: 760px;
-      margin: auto;
-    }
-
-    .card {
-      background: #1e293b;
-      padding: 20px;
-      border-radius: 12px;
-      text-decoration: none;
-      color: white;
-      transition: 0.2s;
-    }
-
-    .card:hover {
-      background: #334155;
-      transform: translateY(-2px);
-    }
-
-    .title {
-      font-size: 1.2rem;
-      margin-bottom: 6px;
-    }
-
-    .desc {
-      font-size: 0.9rem;
-      color: #94a3b8;
-    }
-
-    .card.wip {
-      cursor: pointer;
-      border: 1px solid #334155;
-      opacity: 0.75;
-    }
-
-    .card.wip:hover {
-      opacity: 1;
-    }
-
-    .wip-badge {
-      display: inline-block;
-      font-size: 0.7rem;
-      background: #f59e0b22;
-      color: #f59e0b;
-      border: 1px solid #f59e0b55;
-      border-radius: 4px;
-      padding: 1px 6px;
-      margin-top: 6px;
-    }
-
-    /* Modal */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: #00000088;
-      backdrop-filter: blur(4px);
-      align-items: center;
-      justify-content: center;
-      z-index: 100;
-    }
-
-    .modal-overlay.active {
-      display: flex;
-    }
-
-    .modal {
-      background: #1e293b;
-      border: 1px solid #334155;
-      border-radius: 16px;
-      padding: 32px 36px;
-      text-align: center;
-      max-width: 320px;
-    }
-
-    .modal .icon { font-size: 2.5rem; margin-bottom: 12px; }
-    .modal h2 { font-size: 1.2rem; margin: 0 0 8px; }
-    .modal p  { color: #94a3b8; font-size: 0.9rem; margin: 0 0 20px; }
-
-    .modal button {
-      background: #334155;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      padding: 8px 24px;
-      font-size: 0.9rem;
-      cursor: pointer;
-    }
-
-    .modal button:hover { background: #475569; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,sans-serif; background:#0f172a; color:#e2e8f0; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:40px 20px; box-sizing:border-box; }
+    .container { text-align:center; width:100%; max-width:860px; }
+    h1 { font-size:2.5rem; margin-bottom:0.4rem; letter-spacing:-0.5px; }
+    .subtitle { color:#64748b; margin-bottom:2.5rem; font-size:0.95rem; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:14px; }
+    .card { background:#1e293b; padding:20px; border-radius:12px; text-decoration:none; color:white; transition:background 0.15s,transform 0.15s; display:block; text-align:left; border:1px solid transparent; }
+    .card:hover { background:#273548; transform:translateY(-2px); border-color:#334155; }
+    .card-dim { background:#151f2e; padding:20px; border-radius:12px; color:#475569; text-align:left; border:1px solid #1e293b; cursor:default; user-select:none; }
+    .icon { font-size:1.5rem; margin-bottom:8px; }
+    .title { font-size:1rem; font-weight:600; margin-bottom:4px; }
+    .desc { font-size:0.82rem; color:#64748b; line-height:1.4; }
+    .card-dim .desc { color:#334155; }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Visadelab</h1>
-    <p>Your personal systems</p>
-
+    <p class="subtitle">Personal systems</p>
     <div class="grid">
-      <a class="card" href="https://tunaspend.visadelab.xyz">
-        <div class="title">💰 Tunaspend</div>
-        <div class="desc">Expense tracker</div>
-      </a>
-
-      <a class="card" href="https://tunatrade.visadelab.xyz">
-        <div class="title">📈 Tunatrade</div>
-        <div class="desc">Trading system</div>
-      </a>
-
-      <a class="card" href="https://tunanote.visadelab.xyz">
-        <div class="title">🧠 Tunanote</div>
-        <div class="desc">Knowledge system</div>
-      </a>
-
-      <a class="card" href="https://buddhist-footprints.visadelab.xyz">
-        <div class="title">🧘 Buddhist Footprint</div>
-        <div class="desc">Spiritual tracking</div>
-      </a>
-
-      <a class="card wip" onclick="showWip('TunaWealth')">
-        <div class="title">🏦 TunaWealth</div>
-        <div class="desc">Personal wealth management</div>
-        <div class="wip-badge">🚧 施工中</div>
-      </a>
-
-      <a class="card wip" onclick="showWip('TunaTCM')">
-        <div class="title">🌿 TunaTCM</div>
-        <div class="desc">TCM health records</div>
-        <div class="wip-badge">🚧 施工中</div>
-      </a>
+      <a class="card" href="https://tunaspend.visadelab.xyz" target="_blank"><div class="icon">?</div><div class="title">TunaSpend</div><div class="desc">Expense tracker</div></a>
+      <a class="card" href="https://tunatrade.visadelab.xyz" target="_blank"><div class="icon">?</div><div class="title">TunaTrade</div><div class="desc">Stock portfolio</div></a>
+      <a class="card" href="https://tunanote.visadelab.xyz" target="_blank"><div class="icon">?</div><div class="title">TunaNote</div><div class="desc">Knowledge & Evernote inbox</div></a>
+      <a class="card" href="https://buddhist-footprints.visadelab.xyz" target="_blank"><div class="icon">?</div><div class="title">Buddhist Footprints</div><div class="desc">Spiritual tracking</div></a>
+      <a class="card" href="https://tunatcm.visadelab.xyz" target="_blank"><div class="icon">?</div><div class="title">TunaTCM</div><div class="desc">Chinese medicine records</div></a>
+      <a class="card" href="https://tunabazi.visadelab.xyz" target="_blank"><div class="icon">?</div><div class="title">TunaBazi</div><div class="desc">Four Pillars of Destiny</div></a>
+      <div class="card"><div class="icon">?</div><div class="title">Telegram Bot</div><div class="desc">Personal automation bot</div></div>
+      <div class="card-dim"><div class="icon">?</div><div class="title">TunaWealth</div><div class="desc">Personal wealth management</div></div>
+      <div class="card-dim"><div class="icon">??</div><div class="title">TunaTravel</div><div class="desc">Travel planning & records</div></div>
+      <div class="card-dim"><div class="icon">?</div><div class="title">Bloomberg Connect</div><div class="desc">Market data integration</div></div>
+      <div class="card-dim"><div class="icon">?</div><div class="title">Gaglobal Risk Report</div><div class="desc">Global risk analysis</div></div>
+      <div class="card-dim"><div class="icon">?</div><div class="title">Thirteen Cards</div><div class="desc">Card game system</div></div>
     </div>
   </div>
-
-  <!-- Under-construction modal -->
-  <div class="modal-overlay" id="wipModal" onclick="closeWip(event)">
-    <div class="modal">
-      <div class="icon">🚧</div>
-      <h2 id="wipTitle"></h2>
-      <p>網站施工中，敬請期待！</p>
-      <button onclick="document.getElementById('wipModal').classList.remove('active')">關閉</button>
-    </div>
-  </div>
-
-  <script>
-    function showWip(name) {
-      document.getElementById('wipTitle').textContent = name;
-      document.getElementById('wipModal').classList.add('active');
-    }
-    function closeWip(e) {
-      if (e.target === e.currentTarget)
-        document.getElementById('wipModal').classList.remove('active');
-    }
-  </script>
+</body>
 </html>
