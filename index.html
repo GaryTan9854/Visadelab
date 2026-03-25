@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
   <title>Visadelab</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,18 +15,19 @@
     .title { font-size:1rem; font-weight:600; margin-bottom:4px; }
     .desc { font-size:0.82rem; color:#64748b; line-height:1.4; }
     .card-dim .desc { color:#334155; }
+    .ver { font-size:0.7rem; color:#334155; margin-top:6px; font-family:monospace; transition:color 0.3s; }
+    .ver.loaded { color:#22c55e; }
   </style>
-</head>
-<body>
+</head><body>
   <div class="container">
     <h1>Visadelab</h1>
     <p class="subtitle">Personal systems</p>
     <div class="grid">
-      <a class="card" href="https://tunaspend.visadelab.xyz" target="_blank"><div class="icon">&#128184;</div><div class="title">TunaSpend</div><div class="desc">Expense tracker</div></a>
-      <a class="card" href="https://tunatrade.visadelab.xyz" target="_blank"><div class="icon">&#128200;</div><div class="title">TunaTrade</div><div class="desc">Stock portfolio</div></a>
-      <a class="card" href="https://tunanote.visadelab.xyz" target="_blank"><div class="icon">&#128221;</div><div class="title">TunaNote</div><div class="desc">Knowledge & Evernote inbox</div></a>
-      <a class="card" href="https://buddhist-footprints.visadelab.xyz" target="_blank"><div class="icon">&#128591;</div><div class="title">Buddhist Footprints</div><div class="desc">Spiritual tracking</div></a>
-      <a class="card" href="https://tunatcm.visadelab.xyz" target="_blank"><div class="icon">&#127807;</div><div class="title">TunaTCM</div><div class="desc">Chinese medicine records</div></a>
+      <a class="card" href="https://tunaspend.visadelab.xyz" target="_blank" data-health="https://tunaspend.visadelab.xyz/api/health"><div class="icon">&#128184;</div><div class="title">TunaSpend</div><div class="desc">Expense tracker</div><div class="ver"></div></a>
+      <a class="card" href="https://tunatrade.visadelab.xyz" target="_blank" data-health="https://tunatrade.visadelab.xyz/api/health"><div class="icon">&#128200;</div><div class="title">TunaTrade</div><div class="desc">Stock portfolio</div><div class="ver"></div></a>
+      <a class="card" href="https://tunanote.visadelab.xyz" target="_blank" data-health="https://tunanote.visadelab.xyz/api/health"><div class="icon">&#128221;</div><div class="title">TunaNote</div><div class="desc">Knowledge & Evernote inbox</div><div class="ver"></div></a>
+      <a class="card" href="https://buddhist.visadelab.xyz" target="_blank" data-health="https://buddhist.visadelab.xyz/api/health"><div class="icon">&#128591;</div><div class="title">Buddhist Footprints</div><div class="desc">Spiritual tracking</div><div class="ver"></div></a>
+      <a class="card" href="https://tunatcm.visadelab.xyz" target="_blank" data-health="https://tunatcm.visadelab.xyz/api/health"><div class="icon">&#127807;</div><div class="title">TunaTCM</div><div class="desc">Chinese medicine records</div><div class="ver"></div></a>
       <div class="card"><div class="icon">&#9775;</div><div class="title">TunaBazi</div><div class="desc">Four Pillars of Destiny</div></div>
       <div class="card"><div class="icon">&#129302;</div><div class="title">Telegram Bot</div><div class="desc">Personal automation bot</div></div>
       <div class="card-dim"><div class="icon">&#128176;</div><div class="title">TunaWealth</div><div class="desc">Personal wealth management</div></div>
@@ -38,5 +37,20 @@
       <div class="card-dim"><div class="icon">&#127183;</div><div class="title">Thirteen Cards</div><div class="desc">Card game system</div></div>
     </div>
   </div>
-</body>
-</html>
+  <script>
+    document.querySelectorAll('[data-health]').forEach(card => {
+      const url = card.dataset.health;
+      const el = card.querySelector('.ver');
+      if (!el) return;
+      fetch(url, { signal: AbortSignal.timeout(4000) })
+        .then(r => r.ok ? r.json() : null)
+        .then(d => {
+          if (d && d.version) {
+            el.textContent = 'v' + d.version;
+            el.classList.add('loaded');
+          }
+        })
+        .catch(() => {});
+    });
+  </script>
+</body></html>
