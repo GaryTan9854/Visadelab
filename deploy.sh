@@ -5,8 +5,8 @@
 
 set -e
 
-MAC_MINI="garytan@192.168.1.10"
-REMOTE_DIR="/Users/garytan/Visadelab_Portal/"
+MBP="gary@192.168.1.11"
+REMOTE_DIR="/Users/gary/Visadelab_Portal/"
 SSH_KEY="$HOME/.ssh/id_ed25519"
 REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
 
@@ -18,10 +18,10 @@ git diff --cached --quiet && echo "No changes to commit" || git commit -m "updat
 echo "🚀 Pushing to GitHub..."
 git push origin main
 
-echo "📡 Deploying to Mac Mini..."
+echo "📡 Deploying to MacBook Pro..."
 rsync -av \
   -e "ssh -i $SSH_KEY -o IdentitiesOnly=yes -o StrictHostKeyChecking=no" \
   "$REPO_DIR/index.html" \
-  "$MAC_MINI:$REMOTE_DIR"
+  "$MBP:$REMOTE_DIR"
 
 echo "✅ Done! https://portal.visadelab.xyz"
