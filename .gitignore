@@ -1,2 +1,10 @@
 .DS_Store
 *.log
+.env
+.env.*
+node_modules/
+*.pem
+*.key
+*.p12
+*.crt
+credentials.json
