@@ -6,7 +6,7 @@
 set -e
 
 MBP="gary@192.168.1.11"
-REMOTE_DIR="/Users/gary/Visadelab_Portal/"
+REMOTE_DIR="/Users/gary/portal-dist/"
 SSH_KEY="$HOME/.ssh/id_ed25519"
 REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
 
