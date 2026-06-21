@@ -22,6 +22,7 @@ echo "📡 Deploying to MacBook Pro..."
 rsync -av \
   -e "ssh -i $SSH_KEY -o IdentitiesOnly=yes -o StrictHostKeyChecking=no" \
   "$REPO_DIR/index.html" \
+  "$REPO_DIR/gag-icon.png" \
   "$MBP:$REMOTE_DIR"
 
 echo "✅ Done! https://portal.visadelab.xyz"
