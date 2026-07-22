@@ -22,7 +22,12 @@ echo "📡 Deploying to MacBook Pro..."
 rsync -av \
   -e "ssh -i $SSH_KEY -o IdentitiesOnly=yes -o StrictHostKeyChecking=no" \
   "$REPO_DIR/index.html" \
+  "$REPO_DIR/server.js" \
   "$REPO_DIR/gag-icon.png" \
   "$MBP:$REMOTE_DIR"
+
+echo "🔄 Restarting portal (PM2)..."
+ssh -i "$SSH_KEY" -o IdentitiesOnly=yes -o StrictHostKeyChecking=no "$MBP" \
+  'export NVM_DIR="$HOME/.nvm"; source $NVM_DIR/nvm.sh; pm2 restart portal'
 
 echo "✅ Done! https://portal.visadelab.xyz"
