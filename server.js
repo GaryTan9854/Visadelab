@@ -33,6 +33,7 @@ const APP_PORTS = {
   histology: 3020,
   fanjian: 3021,
   tunavocab: 3022,
+  twmahjong: 3023,
 };
 
 const CACHE_MS = 60_000;
