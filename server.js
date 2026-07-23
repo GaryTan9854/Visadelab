@@ -32,6 +32,7 @@ const APP_PORTS = {
   '543': 3019,
   histology: 3020,
   fanjian: 3021,
+  tunavocab: 3022,
 };
 
 const CACHE_MS = 60_000;
