@@ -34,6 +34,8 @@ const APP_PORTS = {
   fanjian: 3021,
   tunavocab: 3022,
   twmahjong: 3023,
+  medtech: 3024,
+  imagequiz: 3025,
 };
 
 const CACHE_MS = 60_000;
