@@ -13,6 +13,10 @@ const PORT = 3000;
 const ROOT = __dirname;
 
 // card key (data-app in index.html) → local port
+// 只列首頁真的有牌卡的 app：沒有牌卡就沒有地方顯示版本，白抓一次 health。
+// 2026-08-05 下架的牌卡（app 仍在跑，直接打網址即可進）：
+//   thirteencards 3013 · fourcolors 3014 · xiyou 3016 · sanguo 3017 · twmahjong 3023（改從 543 進）
+//   parasite 3018 · histology 3020 · medtech 3024 · imagequiz 3025（改從 medtech 進）
 const APP_PORTS = {
   tunaspend: 3001,
   tunapfl: 3002,
@@ -23,19 +27,10 @@ const APP_PORTS = {
   tunatravel: 3008,
   gaglobal: 3010,
   tunabazi: 3011,
-  thirteencards: 3013,
-  fourcolors: 3014,
   tunaiching: 3015,
-  xiyou: 3016,
-  sanguo: 3017,
-  parasite: 3018,
   '543': 3019,
-  histology: 3020,
   fanjian: 3021,
   tunavocab: 3022,
-  twmahjong: 3023,
-  medtech: 3024,
-  imagequiz: 3025,
 };
 
 const CACHE_MS = 60_000;
