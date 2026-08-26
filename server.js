@@ -31,6 +31,7 @@ const APP_PORTS = {
   '543': 3019,
   fanjian: 3021,
   tunavocab: 3022,
+  jupinote: 3026,
 };
 
 const CACHE_MS = 60_000;
