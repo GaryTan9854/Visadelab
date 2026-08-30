@@ -8,3 +8,11 @@ node_modules/
 *.p12
 *.crt
 credentials.json
+
+# Claude Code 的 worktree 殘留
+.claude/
+
+# 本地獨立的 git repo，不是這個 repo 的一部分。
+# 沒有 .gitignore 的話 deploy.sh 的 `git add -A` 會把它們變回壞掉的 gitlink。
+telegram-bot/
+telegram-bot-github/

@@ -59,11 +59,10 @@ Visadelab 應用的牌卡頁，加一個零依賴的 Node 靜態伺服器。牌�
 
 ## 已知的髒東西
 
-- **三個壞掉的 submodule**：`telegram-bot`、`telegram-bot-github`、
-  `.claude/worktrees/great-nobel-bb0cab` 在 index 裡是 gitlink（mode 160000），
-  但 repo 沒有 `.gitmodules`。結果是 clone 下來就是三個空目錄，內容永遠拉不到。
-  前兩個還指向同一個 commit `b7fd17e`。要嘛補 `.gitmodules`，要嘛
-  `git rm --cached` 清掉——現狀是純粹的雜訊。
+- **`telegram-bot/`、`telegram-bot-github/` 是本地獨立的 git repo**，不屬於這個 repo。
+  它們曾經被誤加成 gitlink（且沒有 `.gitmodules`），2026-08 已清掉並加進 `.gitignore`。
+  **不要把 `.gitignore` 那幾行拿掉**——`deploy.sh` 的 `git add -A` 會立刻把它們變回
+  壞掉的 gitlink。`.claude/` 同理（Claude Code 的 worktree 殘留）。
 - **兩個孤兒 CSV**：`jp_japan_universe_yfinance.csv`、`kr_market_yfinance_universe.csv`
   沒有被任何程式碼引用，也不在 rsync 清單裡。應該是別的專案留下的。
 
