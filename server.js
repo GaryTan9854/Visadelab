@@ -32,6 +32,7 @@ const APP_PORTS = {
   fanjian: 3021,
   tunavocab: 3022,
   jupinote: 3026,
+  tunarecipe: 3027,
 };
 
 const CACHE_MS = 60_000;
