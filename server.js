@@ -27,6 +27,7 @@ const APP_PORTS = {
   tunatravel: 3008,
   gaglobal: 3010,
   tunabazi: 3011,
+  tunacompanion: 3012,
   tunaiching: 3015,
   '543': 3019,
   fanjian: 3021,
