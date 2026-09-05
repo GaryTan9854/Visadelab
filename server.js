@@ -34,6 +34,10 @@ const APP_PORTS = {
   tunavocab: 3022,
   jupinote: 3026,
   tunarecipe: 3027,
+  // ⚠ TunaTM 跑在 **MBA** 不是 MBP（備份來源／launchd 排程／要清的磁碟都在 MBA）。
+  //    這裡登記只是為了牌卡有 key；portal 在 MBP 上抓 localhost:3029 抓不到，
+  //    版本號會是空的——**這是預期行為，不是壞掉**。DNS 也還沒設。
+  tunatm: 3029,
 };
 
 const CACHE_MS = 60_000;
