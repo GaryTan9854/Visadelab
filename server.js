@@ -33,6 +33,7 @@ const APP_PORTS = {
   fanjian: 3021,
   tunavocab: 3022,
   jupinote: 3026,
+  jupitodo: 3030,
   tunarecipe: 3027,
   // ⚠ **TunaTM 刻意不登記在這裡。** 它跑在 MBA（port 3029），而這份 APP_PORTS 是
   //    portal 在 **MBP 本機**抓 localhost:PORT/api/health 用的——MBP 上沒有 3029，
