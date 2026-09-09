@@ -35,10 +35,10 @@ const APP_PORTS = {
   jupinote: 3026,
   jupitodo: 3030,
   tunarecipe: 3027,
-  // ⚠ **TunaPerson 也刻意不登記在這裡**（同 TunaTM）。它跑在 MBA（port 3031），
-  //    而且裡面是護照號碼、身分證、家人生日——那種東西不上 MBP、不進 cloudflared。
-  //    牌卡直接連 http://localhost:3031。
-  //
+  // TunaPerson 跑在 MBP（3031），所以 health 抓得到，登記在這裡沒問題。
+  // ⚠ 但它**沒有對外 hostname**（cloudflared 裡刻意沒有它）——牌卡連
+  //    http://192.168.1.11:3031，家裡網段內才通。安全邊界是「沒掛上外網」，不是「在哪台機器」。
+  tunaperson: 3031,
   // ⚠ **TunaTM 刻意不登記在這裡。** 它跑在 MBA（port 3029），而這份 APP_PORTS 是
   //    portal 在 **MBP 本機**抓 localhost:PORT/api/health 用的——MBP 上沒有 3029，
   //    登記了只會每 60 秒白打一次永遠失敗的請求，版本欄還是空的。
