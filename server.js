@@ -35,6 +35,7 @@ const APP_PORTS = {
   jupinote: 3026,
   jupitodo: 3030,
   tunasphere: 3033,
+  tunasavoir: 3035,
   tunarecipe: 3027,
   // TunaPerson 跑在 MBP（3031），所以 health 抓得到，登記在這裡沒問題。
   // ⚠ 但它**沒有對外 hostname**（cloudflared 裡刻意沒有它）——牌卡連
