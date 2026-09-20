@@ -24,6 +24,13 @@ rsync -av \
   "$REPO_DIR/index.html" \
   "$REPO_DIR/server.js" \
   "$REPO_DIR/gag-icon.png" \
+  "$REPO_DIR/manifest.json" \
+  "$REPO_DIR/sw.js" \
+  "$REPO_DIR/pwa.js" \
+  "$REPO_DIR/icon-180.png" \
+  "$REPO_DIR/icon-192.png" \
+  "$REPO_DIR/icon-512.png" \
+  "$REPO_DIR/icon-maskable-512.png" \
   "$MBP:$REMOTE_DIR"
 
 echo "🔄 Restarting portal (PM2)..."

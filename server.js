@@ -85,6 +85,9 @@ const MIME = {
   '.png': 'image/png',
   '.ico': 'image/x-icon',
   '.svg': 'image/svg+xml',
+  // ★ 沒有這一行，/manifest.json 會被當成 octet-stream 而被瀏覽器拒收（PWA 靜靜失效）
+  '.json': 'application/json; charset=utf-8',
+  '.webmanifest': 'application/manifest+json',
   '.css': 'text/css; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8',
 };
