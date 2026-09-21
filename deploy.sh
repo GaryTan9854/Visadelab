@@ -18,6 +18,9 @@ git diff --cached --quiet && echo "No changes to commit" || git commit -m "updat
 echo "🚀 Pushing to GitHub..."
 git push origin main
 
+# ★ appicon-*.png ＝ 那些在 Cloudflare Access 後面的 app 的 iPhone 主畫面圖示（2026-09-21）。
+#   iPhone「加入主畫面」去抓 apple-touch-icon 時不帶 Access 的登入 cookie ⇒ 拿到 302 的登入頁，
+#   圖示退回成一個字母（Gary 太太的 TunaSavoir 變成「T」）。放在公開的 visadelab.xyz 就不用 cookie。
 echo "📡 Deploying to MacBook Pro..."
 rsync -av \
   -e "ssh -i $SSH_KEY -o IdentitiesOnly=yes -o StrictHostKeyChecking=no" \
@@ -31,6 +34,7 @@ rsync -av \
   "$REPO_DIR/icon-192.png" \
   "$REPO_DIR/icon-512.png" \
   "$REPO_DIR/icon-maskable-512.png" \
+  "$REPO_DIR"/appicon-*.png \
   "$MBP:$REMOTE_DIR"
 
 echo "🔄 Restarting portal (PM2)..."
