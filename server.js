@@ -9,6 +9,15 @@ const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
 
+// ★ portal 自己也要回版本（2026-09-28）——CLAUDE.md 的 health 合約寫「每個 app 都要」，
+//   而它一直是例外，所以它的 deploy 無法驗「跑的到底是新版還是舊行程」。
+// ⚠ 讀不到就給空字串，**不要讓 portal 起不來**：deploy.sh 的 rsync 是逐檔白名單，
+//   漏了 package.json 的話 require 會直接讓整個牌卡首頁掛掉（那是最不該倒的一支）。
+const { version: APP_VERSION, build: APP_BUILD } = (() => {
+  try { const p = require('./package.json'); return { version: String(p.version || ''), build: String(p.build || '') }; }
+  catch { return { version: '', build: '' }; }
+})();
+
 const PORT = 3000;
 const ROOT = __dirname;
 
@@ -128,7 +137,7 @@ const server = http.createServer(async (req, res) => {
 
   if (url.pathname === '/api/health') {
     res.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' });
-    res.end(JSON.stringify({ status: 'ok', app: 'portal' }));
+    res.end(JSON.stringify({ status: 'ok', app: 'portal', version: APP_VERSION, build: APP_BUILD }));
     return;
   }
 
