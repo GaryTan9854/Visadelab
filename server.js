@@ -43,6 +43,7 @@ const APP_PORTS = {
   tunavocab: 3022,
   jupinote: 3026,
   jupitodo: 3030,
+  jupiuni: 3039,
   tunasphere: 3033,
   tunasavoir: 3035,
   tunajazz: 3037,
