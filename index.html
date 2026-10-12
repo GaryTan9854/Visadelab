@@ -17,6 +17,7 @@
     .card-dim .desc { color:#334155; }
     .ver { font-size:0.7rem; color:#334155; margin-top:6px; font-family:monospace; transition:color 0.3s; }
     .ver.loaded { color:#22c55e; }
+    .route { font-size:0.68rem; color:#64748b; margin-top:4px; }
   </style>
 <!-- PWA:visadelab —— 由 ~/Documents/.claude/skills/pwa-app 產生，改 apps.js 後重跑 stamp.js，勿手改。
      ★★ crossorigin="use-credentials" 不可拿掉：瀏覽器抓 manifest 預設「不帶 cookie」，
@@ -59,7 +60,7 @@
       <a class="card" href="https://tunasphere.visadelab.xyz" target="_blank" data-app="tunasphere"><div class="icon">🌐</div><div class="title"><span style="color:#5fb3d4">Tuna</span><span style="color:#e6edf6">Sphere</span> 環球</div><div class="desc">轉動 3D 地球，認識每一個國家</div><div class="ver"></div></a>
       <a class="card" href="https://tunajazz.visadelab.xyz" target="_blank" data-app="tunajazz"><div class="icon">🎷</div><div class="title"><span style="color:#e0913e">Tuna</span><span style="color:#e6edf6">Jazz</span></div><div class="desc">爵士語言實驗場：和弦譜、伴奏、AI 即興</div><div class="ver"></div></a>
       <a class="card" href="https://tunarecipe.visadelab.xyz" target="_blank" data-app="tunarecipe"><div class="icon"><svg width="38" height="38" viewBox="0 0 48 48" aria-label="Chef hat" style="display:block"><path d="M11 29h26v8H11z" fill="none" stroke="#f1f4f7" stroke-width="2.5" stroke-linejoin="round"/><path d="M15 29v-5.5a8 8 0 0 1 2.7-15.5 9 9 0 0 1 7.3-4 9 9 0 0 1 7.3 4A8 8 0 0 1 35 23.5V29" fill="none" stroke="#f1f4f7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 33h18" stroke="#e47c00" stroke-width="2.5" stroke-linecap="round"/></svg></div><div class="title"><span style="color:#4d8b73">Tuna</span><span style="color:#e47c00">Recipe</span></div><div class="desc">家傳食譜收藏與分享</div><div class="ver"></div></a>
-      <a class="card" href="https://garymbp-8.taild7fa31.ts.net/" target="_blank" data-app="tunaperson" title="走 Tailscale serve（tailnet only，不是 funnel）——真憑證的 HTTPS，只有 Gary 自己的裝置連得到，手機在外面也通。cloudflared 裡仍然刻意沒有它，沒有對外 hostname。舊的 http://localhost:3031 只有在 MBA 上、而且 forward 的 LaunchAgent 有在跑才通"><div class="icon"><svg width="34" height="34" viewBox="0 0 40 40" style="display:block"><circle cx="20" cy="20" r="17" fill="none" stroke="#1f9c6b" stroke-width="1.2" opacity=".55"/><circle cx="20" cy="20" r="11" fill="none" stroke="#2f7fd6" stroke-width="1.2" opacity=".8"/><circle cx="20" cy="14.5" r="3.4" fill="none" stroke="#2f7fd6" stroke-width="1.8"/><path d="M14.6 25.5a5.8 5.8 0 0 1 10.8 0" fill="none" stroke="#2f7fd6" stroke-width="1.8" stroke-linecap="round"/><circle cx="37" cy="20" r="2" fill="#1f9c6b"/><circle cx="20" cy="3" r="1.6" fill="#1f9c6b" opacity=".7"/><circle cx="8" cy="31" r="1.6" fill="#1f9c6b" opacity=".7"/></svg></div><div class="title"><span style="color:#1f9c6b">Tuna</span><span style="color:#2f7fd6">Person</span></div><div class="desc">對一個人建模 · 一微塵一世界</div><div class="ver"></div></a>
+      <a class="card" href="https://garymbp-8.taild7fa31.ts.net/" target="_blank" data-app="tunaperson" data-route-ts="https://garymbp-8.taild7fa31.ts.net/" data-route-lan="http://192.168.1.11:3031/" title="兩條路，牌卡會自己量一次再決定：Tailscale serve（tailnet only，不是 funnel；真憑證 HTTPS，在外面也通，但 Tailscale 要在跑）／家裡網段 http://192.168.1.11:3031（不需要 Tailscale，只有家裡連得到）。底下那行寫的是它這次要走哪一條。cloudflared 裡仍然刻意沒有它，沒有對外 hostname。MBA 上另有一支 forward LaunchAgent 讓 http://localhost:3031 也通。"><div class="icon"><svg width="34" height="34" viewBox="0 0 40 40" style="display:block"><circle cx="20" cy="20" r="17" fill="none" stroke="#1f9c6b" stroke-width="1.2" opacity=".55"/><circle cx="20" cy="20" r="11" fill="none" stroke="#2f7fd6" stroke-width="1.2" opacity=".8"/><circle cx="20" cy="14.5" r="3.4" fill="none" stroke="#2f7fd6" stroke-width="1.8"/><path d="M14.6 25.5a5.8 5.8 0 0 1 10.8 0" fill="none" stroke="#2f7fd6" stroke-width="1.8" stroke-linecap="round"/><circle cx="37" cy="20" r="2" fill="#1f9c6b"/><circle cx="20" cy="3" r="1.6" fill="#1f9c6b" opacity=".7"/><circle cx="8" cy="31" r="1.6" fill="#1f9c6b" opacity=".7"/></svg></div><div class="title"><span style="color:#1f9c6b">Tuna</span><span style="color:#2f7fd6">Person</span></div><div class="desc">對一個人建模 · 一微塵一世界</div><div class="ver"></div><div class="route"></div></a>
       <a class="card" href="http://localhost:3029" target="_blank" data-app="tunatm" title="只在 MBA 上開得起來——這支能刪檔案，刻意不對外開放"><div class="icon"><svg width="34" height="34" viewBox="0 0 40 40" style="display:block"><circle cx="20" cy="20" r="16" fill="none" stroke="#1f9c6b" stroke-width="2"/><path d="M20 11v9l6 4" fill="none" stroke="#2f7fd6" stroke-width="2.2" stroke-linecap="round"/><path d="M31 9v6h-6" fill="none" stroke="#2f7fd6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M30.5 15a12 12 0 1 0-1.2 8.6" fill="none" stroke="#1f9c6b" stroke-width="2" stroke-linecap="round"/></svg></div><div class="title"><span style="color:#1f9c6b">Tuna</span><span style="color:#2f7fd6">TM</span></div><div class="desc">備份與磁碟清理 · 取代 Time Machine</div><div class="ver" style="color:#8a93a0">僅限本機 :3029</div></a>
       <a class="card" href="http://localhost:3038" target="_blank" title="只在 MBA 上開得起來——它握著所有 app 的鑰匙，刻意不設網址、不進隧道。用 localhost 不要用 127.0.0.1（指紋認的是網域名稱）"><div class="icon"><svg width="34" height="34" viewBox="0 0 40 40" style="display:block"><rect x="6" y="9" width="28" height="24" rx="3" fill="none" stroke="#5fb3d4" stroke-width="2"/><circle cx="20" cy="20" r="6.5" fill="none" stroke="#e6b86b" stroke-width="2"/><circle cx="20" cy="18.6" r="1.9" fill="#e6b86b"/><path d="M20 20.2v3.4" stroke="#e6b86b" stroke-width="2" stroke-linecap="round"/><path d="M20 9V6M27 33v2M13 33v2" stroke="#5fb3d4" stroke-width="1.6" stroke-linecap="round"/></svg></div><div class="title"><span style="color:#5fb3d4">Tuna</span><span style="color:#e6b86b">Vault</span></div><div class="desc">所有帳號與對外安控 · 指紋開啟</div><div class="ver" style="color:#8a93a0">僅限本機 :3038</div></a>
       <a class="card" href="https://gaglobal.visadelab.xyz" target="_blank" data-app="gaglobal"><div class="icon"><img src="gag-icon.png?v=3" alt="GAG" style="width:36px;height:36px;object-fit:contain;display:block;"></div><div class="title">GAG Risk Report</div><div class="desc">Global risk analysis</div><div class="ver"></div></a>
@@ -80,5 +81,21 @@
         });
       })
       .catch(() => {});
+
+    /* TunaPerson 有兩條路、沒有對外 hostname：Tailscale serve 的 HTTPS 名字（在外面也通，但
+       Tailscale 要在跑），以及家裡網段的 http://192.168.1.11:3031（不需要 Tailscale）。
+       這一頁是 https，所以「探測 ts.net」合法（同為 https），而「探測家裡網段的 http」會被
+       瀏覽器當混合內容擋掉 —— 因此只量得到前者，量不到就走後者。
+       no-cors 拿到的是不透明回應，讀不到內容，但「有沒有回應」正是我們要的那一個位元。 */
+    (() => {
+      const card = document.querySelector('[data-app="tunaperson"]');
+      if (!card) return;
+      const ts = card.dataset.routeTs, lan = card.dataset.routeLan;
+      const label = card.querySelector('.route');
+      const pick = (url, text) => { card.href = url; if (label) label.textContent = text; };
+      fetch(ts + 'api/health', { mode: 'no-cors', cache: 'no-store', signal: AbortSignal.timeout(2500) })
+        .then(() => pick(ts, 'Tailscale'))
+        .catch(() => pick(lan, '家裡網段（Tailscale 沒接上）'));
+    })();
   </script>
 </body></html>
