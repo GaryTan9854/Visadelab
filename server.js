@@ -29,6 +29,7 @@ const ROOT = __dirname;
 const APP_PORTS = {
   tunaspend: 3001,
   tunapfl: 3002,
+  tunatrade: 3040,
   tunanote: 3003,
   buddhist: 3004,
   tunatcm: 3006,
