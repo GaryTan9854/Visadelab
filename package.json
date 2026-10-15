@@ -1,7 +1,7 @@
 {
   "name": "visadelab-portal",
-  "version": "1.1.5",
-  "build": 77,
+  "version": "1.1.6",
+  "build": 78,
   "private": true,
   "description": "Visadelab Portal —— 零依賴 node:http 靜態伺服器 ＋ 本機版本聚合器"
 }
